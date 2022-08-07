@@ -210,6 +210,6 @@ __benchmarks__ = [
     (*bench(hash_), "hashing"),
     (*bench(pickling, StdlibEnum, CompatEnum), "pickling"),
     (*bench(unpickling, StdlibEnum, CompatEnum), "unpickling"),
-    (*bench(members), "__members__"),
+    (*bench(members), "`__members__`"),
     (*bench(unique), "@unique"),
 ]
