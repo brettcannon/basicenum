@@ -194,15 +194,15 @@ def unique(module):
 
 __benchmarks__ = [
     (*bench(import_), "import"),
-    (*bench(auto), "creation w/ auto()"),
-    (*bench(generate), "_generate_next_value_()"),
+    (*bench(auto), "creation w/ `auto()`"),
+    (*bench(generate), "`_generate_next_value_()`"),
     (*bench(constants), "creation w/ constants"),
     (stdlib_functional, compat_functional, "functional API"),
     (*bench(isinstance_), "isinstance(..., Enum)"),
-    (*bench(iter_), "iter(Enum)"),
-    (*bench(call), "Enum(...)"),
-    (*bench(getitem), "Enum[...]"),
-    (*bench(contains), "... in Enum"),
+    (*bench(iter_), "`iter(Enum)`"),
+    (*bench(call), "`Enum(...)`"),
+    (*bench(getitem), "`Enum[...]`"),
+    (*bench(contains), "`... in Enum`"),
     (*bench(access), "member access"),
     (*bench(value), "value access"),
     (*bench(equality), "equality"),
@@ -211,5 +211,5 @@ __benchmarks__ = [
     (*bench(pickling, StdlibEnum, CompatEnum), "pickling"),
     (*bench(unpickling, StdlibEnum, CompatEnum), "unpickling"),
     (*bench(members), "`__members__`"),
-    (*bench(unique), "@unique"),
+    (*bench(unique), "`@unique`"),
 ]
