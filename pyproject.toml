@@ -4,15 +4,17 @@ build-backend = "flit_core.buildapi"
 
 [project]
 name = "basicenum"
-version = "2022.0.0a1"
+version = "2023.0"
 authors = [{name = "Brett Cannon", email = "brett@python.org"}]
+readme = "README.md"
+keywords = ["enum"]
 license = {file = "LICENSE"}
 requires-python = ">=3.9"
 classifiers = ["License :: OSI Approved :: MIT License"]
 dynamic = ["description"]
 
 [project.urls]
-Home = "https://github.com/brettcannon/autoenum"
+Repository = "https://github.com/brettcannon/basicenum"
 
 [project.optional-dependencies]
 test = ["pytest"]
