@@ -6,7 +6,6 @@ import types
 _AUTO = object()
 
 
-# XXX Make generic
 class Member:
 
     """Representation of an enum member."""
@@ -24,7 +23,6 @@ class Member:
         """Pickle by specifying the containing class and name of the member.
 
         Unpickling retains object identity.
-
         """
         return getattr, (self._cls, self.name)
 
@@ -35,7 +33,6 @@ class Member:
         """Hash the name of the member.
 
         This matches the semantics of the `enum` module from the stdlib.
-
         """
         return hash(self.name)
 
@@ -59,7 +56,7 @@ class Meta(type):
                 if hasattr(base, "_generate_next_value_"):
                     custom_auto = base._generate_next_value_
                     break
-        # The rules in `enum` are much more strict in what gets skipped.
+        # The rules in `enum` are much stricter for what gets skipped.
         # Need to do this upfront so enumerate() returns what's expected for
         # _generate_next_value_().
         members_iter = (
@@ -75,7 +72,7 @@ class Meta(type):
                 else:
                     value = custom_auto(
                         name,
-                        1,  # No way to specified a different starting value.
+                        1,  # No way to specify a different starting value.
                         index,
                         list(member.value for member in members.values()),
                     )
@@ -169,7 +166,6 @@ def unique(cls):
     """Make sure all enum members have unique values.
 
     Raises ValueError if any duplicate values are found.
-
     """
     seen = []
     for value in (member.value for member in cls.__members__.values()):
