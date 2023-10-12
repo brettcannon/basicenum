@@ -2,7 +2,6 @@ import enum
 import pickle
 
 import pytest
-
 from basicenum import compat
 
 
@@ -89,16 +88,6 @@ class TestClass:
         assert Enum.v2.value == 5
         assert Enum.v3.value == 6
 
-    def test_auto_interleave_str(self, module):
-        class Enum(module.Enum):
-            v1 = module.auto()
-            v2 = "5"
-            v3 = module.auto()
-
-        assert Enum.v1.value == 1
-        assert Enum.v2.value == "5"
-        assert Enum.v3.value == 2
-
     def test_auto_generate(self, module):
         next_values = []
 
@@ -176,7 +165,7 @@ class TestClass:
 
     def test_call_fail(self, module):
         class Enum(module.Enum):
-            pass
+            names = ()
 
         with pytest.raises(ValueError):
             Enum(42)
@@ -199,6 +188,24 @@ class TestClass:
             member = 42
 
         assert Enum.member in Enum
+
+
+class TestBasicEnumClass:
+    def test_auto_interleave_str(self):
+        """Test interleaving arbitrary values between auto() calls.
+
+        Stdlib enum deprecated this support and is slated for removal in
+        Python 3.13.
+        """
+
+        class Enum(compat.Enum):
+            v1 = compat.auto()
+            v2 = "5"
+            v3 = compat.auto()
+
+        assert Enum.v1.value == 1
+        assert Enum.v2.value == "5"
+        assert Enum.v3.value == 2
 
 
 class StdlibEnum(enum.Enum):
