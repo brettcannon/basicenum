@@ -149,6 +149,14 @@ def repr_(module):
         x = repr(BenchEnum.member)
 
 
+def str_(module):
+    class BenchEnum(module.Enum):
+        member = 42
+
+    for _ in range(100_000):
+        x = str(BenchEnum.member)
+
+
 def hash_(module):
     class Enum(module.Enum):
         member = 42
@@ -207,6 +215,7 @@ __benchmarks__ = [
     (*bench(value), "value access"),
     (*bench(equality), "equality"),
     (*bench(repr_), "repr"),
+    (*bench(str_), "str"),
     (*bench(hash_), "hashing"),
     (*bench(pickling, StdlibEnum, CompatEnum), "pickling"),
     (*bench(unpickling, StdlibEnum, CompatEnum), "unpickling"),
