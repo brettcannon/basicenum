@@ -52,8 +52,19 @@ The compatibility with `enum.Enum` is:
 
 Unfortunately, type checkers hard-code their support for `enum.Enum`. That means
 they do not recognize members of `basicenum.compat.Enum` as being instances of
-`Member` or matching the API of members of `enum.Enum`. Auto-complete based on
-member names should work, though.
+`Member` or matching the API of members of `enum.Enum`.
+
+Luckily, you can lie to the type checkers. You can tell them to type check as if
+you're using `enum` while using `basicenum.compat` during execution.
+
+```python
+from typing import TYPE_CHECKING
+
+if TYPE_CHECKING:
+    from enum import Enum, auto
+else:
+    from basicenum.compat import Enum, auto
+```
 
 ### Benchmarking
 
