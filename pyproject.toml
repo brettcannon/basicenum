@@ -4,7 +4,7 @@ build-backend = "pdm.backend"
 
 [project]
 name = "basicenum"
-version = "2023.0"
+version = "2023.1"
 authors = [{name = "Brett Cannon", email = "brett@python.org"}]
 description = "Simple(r) enums"
 readme = "README.md"
