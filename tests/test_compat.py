@@ -244,6 +244,9 @@ class TestMember:
     def test_repr(self, enum_):
         assert repr(enum_.v1) == f"<{enum_.__name__}.v1: 1>"
 
+    def test_str(self, enum_):
+        assert str(enum_.v1) == f"{enum_.__name__}.v1"
+
     def test_hash(self, enum_):
         assert hash(enum_.v1) == hash(enum_.v1)
 

@@ -30,6 +30,7 @@ The compatibility with `enum.Enum` is:
 | Feature | Supported? |
 | ------- | ---------- |
 |`repr(Colour.RED)`|✅|
+|`str(Colour.RED)`|✅|
 |`type(Colour.RED)`|❌ (`Member` instead)|
 |`isinstance(Colour.RED, Colour)`|✅|
 |`iter(Colour)`|✅|
