@@ -38,14 +38,26 @@ The compatibility with `enum.Enum` is:
 |`Colour(1)`|✅|
 |`Colour["RED"]`|✅|
 |`Colour.RED in Colour`|✅|
+|`Colour._ignore_`|❌|
 |`Colour.RED.name`|✅|
+|`Colour.RED._name_`|❌|
 |`Colour.RED.value`|✅|
+|`Colour.RED._value_`|❌|
 |`auto()`|✅|
 |`_generate_next_value_()`|✅|
 |`Colour.__members__`|✅|
 |`Colour.RED == Colour.RED`|✅|
+|`Colour.__init__()` w/ tuples for member values|❌|
 |Restricted subclassing|❌|
+|Ignore methods and callables|✅|
+|Ignore descriptors|❌|
+|Ignore nested classes|❌|
+|Ignore private names|✅|
+|`member`|❌|
+|`nonmember`|❌|
 |Pickling|✅|
+|`Enum` class|✅|
+|`EnumMeta` metaclass|❌|
 |Functional API|✅ (via `create()`)|
 
 ### Type Checking
